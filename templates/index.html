@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Segmentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Loyality of Customer</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <!--input type="text" name="room_type" id="room type" placeholder="1] Private Room 2] Entire Room 3] shared Room" required="required"  /-->
+
+        <!--input type="text" name="neighbourhood_group" id="neighbourhood" placeholder="1] Brooklyn 2] Manhatten" required="required"  /-->
+        <input type="text" name="Recency" placeholder="Recency" required="required"  />
+        <input type="text" name="Frequency" placeholder="Frequency" required="required"  />
+        <input type="text" name="Monetary" placeholder="Monetary" required="required"  />
+
+        		<!--input type="text" name="interview_score" placeholder="Interview Score" required="required" /-->
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
